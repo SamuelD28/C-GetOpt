@@ -41,10 +41,30 @@ namespace GetOptNameSpace
 			{
 				case TypeCode.Int16:
 				case TypeCode.Int32:
-				case TypeCode.Int64:	return (v) => { Value = Convert.ToInt32(v); };
-				case TypeCode.Boolean:	return (v) => { Value = Convert.ToBoolean(v != null); };
-				case TypeCode.String:	return (v) => { Value = Convert.ToString(v); };
-				case TypeCode.Char:		return (v) => { Value = Convert.ToChar(v); };
+				case TypeCode.Int64:	return (v) => 
+				{
+					int value;
+					if (int.TryParse(v.ToString(), out value))
+						Value = value;
+					else
+						throw new OptionException("Wrong Value", "?");
+				};
+				case TypeCode.Boolean:	return (v) => 
+				{
+					Value = v != null;
+				};
+				case TypeCode.String:	return (v) => 
+				{
+					//Maybe add a verification
+					Value = v.ToString();
+				};
+				case TypeCode.Char:		return (v) => 
+				{
+					if (v.ToString().Length == 1)
+						Value = v.ToString();
+					else
+						throw new OptionException("The char value exceed 1 character", "?");
+				};
 				default: throw new TypeAccessException("The specified type is not handled");
 			}
 		}

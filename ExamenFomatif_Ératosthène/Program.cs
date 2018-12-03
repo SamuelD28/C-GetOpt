@@ -13,6 +13,7 @@ namespace ExamenFomatif_Ératosthène
 		private static CommandArgument intCommand = new CommandArgument("i|integer", "Execute Fibonachi with an integer", TypeCode.Boolean);
 		private static CommandArgument doubleCommand = new CommandArgument("d|double", "Execute Fibonachi with a doubles", TypeCode.Boolean);
 		private static CommandArgument bigIntCommand = new CommandArgument("b|big", "Execute Fibonachi with a big integer", TypeCode.Boolean);
+		private static CommandArgument maxLimit = new CommandArgument("n|limit=", "Execute Fibonachi with a {MAX}", TypeCode.Int32);
 		private static CommandConstraits constraints = new CommandConstraits(new CommandArgument[] { intCommand, doubleCommand, bigIntCommand });
 
 		static void Main(string[] args)
@@ -25,7 +26,7 @@ namespace ExamenFomatif_Ératosthène
 			try
 			{
 				GetOpt getOpt = new GetOpt(	args,
-											new CommandArgument[] { intCommand, doubleCommand, bigIntCommand },
+											new CommandArgument[] { intCommand, doubleCommand, bigIntCommand, maxLimit},
 											new CommandConstraits[] { constraints });
 
 				if (doubleCommand.Value != null)
@@ -36,10 +37,14 @@ namespace ExamenFomatif_Ératosthène
 
 				if (bigIntCommand.Value != null)
 					WriteLine("Execution of the bigInt command...");
+
+				if (maxLimit.Value != null)
+					WriteLine((int)maxLimit.Value);
 			}
 			catch(OptionException e)
 			{
-				Write(e.Message);
+				//The exception information needs to be more precise, right i dont pass any relavant information when i throw a new exception
+				Write(e.OptionName + " " + e.Message);
 			}
 		}
 
