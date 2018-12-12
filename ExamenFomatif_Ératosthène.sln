@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamenFomatif_Ératosthène", "ExamenFomatif_Ératosthène\ExamenFomatif_Ératosthène.csproj", "{E2AEF8D3-A924-4F1F-B74F-66CF786712B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetOpt", "ExamenFomatif_Ératosthène\GetOpt.csproj", "{E2AEF8D3-A924-4F1F-B74F-66CF786712B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

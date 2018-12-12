@@ -29,6 +29,8 @@ namespace ExamenFomatif_Ératosthène
 											new CommandArgument[] { intCommand, doubleCommand, bigIntCommand, maxLimit},
 											new CommandConstraits[] { constraints });
 
+				//We check if the value is not null because they are initialised to null. We can cast inside the if statement if
+				//the value does have aa value
 				if (doubleCommand.Value != null)
 					WriteLine("Execution of the double command...");
 
@@ -39,7 +41,11 @@ namespace ExamenFomatif_Ératosthène
 					WriteLine("Execution of the bigInt command...");
 
 				if (maxLimit.Value != null)
-					WriteLine((int)maxLimit.Value);
+				{
+					//We can cast here because we know the command has a value and it needs to respect the TypeCode pass to the constructor
+					int limit = (int)maxLimit.Value;
+					WriteLine(limit);
+				}
 			}
 			catch(OptionException e)
 			{

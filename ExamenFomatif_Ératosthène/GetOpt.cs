@@ -63,7 +63,7 @@ namespace GetOptNameSpace
 					if (v.ToString().Length == 1)
 						Value = v.ToString();
 					else
-						throw new OptionException("The char value exceed 1 character", "?");
+						throw new OptionException("The char value exceed 1 character", "?"); //Need work
 				};
 				default: throw new TypeAccessException("The specified type is not handled");
 			}
