@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using NDesk.Options;
+using NDesk.Options; //Needed package to make this work. Available in nugget
 
 namespace GetOptNameSpace
 {
@@ -139,6 +139,8 @@ namespace GetOptNameSpace
 				{
 					if (!c.AreCommandsMutuallyExclusif())
 						throw new OptionException("Options must be mutually exclusif", "-i|-d|-m");
+
+					//TODO : Check for the idrrect dependance constraits
 				}
 
 				if ((bool)helpCommand.Value)
